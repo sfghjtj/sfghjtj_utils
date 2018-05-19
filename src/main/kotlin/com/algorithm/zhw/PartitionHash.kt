@@ -30,6 +30,9 @@ object PartitionHash {
         }
     }
 
+    /**
+     * 结果每个物理的分片为[3,2,3,2]->[0..2,3..4,5..7,8..9]
+     */
     fun conHashPartionToArea(partitionKey: Int, machineNum: Int): List<IntRange> {
         val listPartion = ArrayList<Int>(machineNum)
         consHashPartion(listPartion, partitionKey, machineNum)
