@@ -13,5 +13,6 @@ class HelloTest {
         val result = ArrayList<Int>(MACHINE_NUMBER)
         PartitionHash.consHashPartion(result, PARTITION_KEY, MACHINE_NUMBER)
         println(result)
+        println(PartitionHash.conHashPartionToArea(PARTITION_KEY,MACHINE_NUMBER))
     }
 }

@@ -29,4 +29,17 @@ object PartitionHash {
             consHashPartion(resultList, partitionKey - roundCal, machineNum - 1)
         }
     }
+
+    fun conHashPartionToArea(partitionKey: Int, machineNum: Int): List<IntRange> {
+        val listPartion = ArrayList<Int>(machineNum)
+        consHashPartion(listPartion, partitionKey, machineNum)
+        return listPartion.mapIndexed { index, i ->
+            if (index == 0) {
+                IntRange(index,i-1)
+            }else{
+                val start = (0..(index-1)).sumBy { listPartion[it] }
+                IntRange(start,i+start-1)
+            }
+        }
+    }
 }
